@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    /* outline: 1px solid red; */
+}
+:root{
+    --BlackBackground:#202020;
+    --OrangeText:#F95F09;
+    --GrayText:#8b8b8b;
+    --SectionPadding:100px;
+    --SectionTitle:4rem;
+}
+h1 , h2 , h3 , h4 , p , div{
+    margin: 0;   
+}
+.textOrange{
+    color: var(--OrangeText);
+}
+.textGray{
+    color: var(--GrayText);
+}
+.sectionTitle{
+    font-size: var(--SectionTitle);
+    font-weight: bold;
+}
+.sectionLittleP{
+    font-size: 1rem;
+}
+.sectionP{
+    font-size: 1.3rem;
+}
+
+nav .logo{
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+nav .menu{
+    border-radius: 50%;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid white;
+}
+header{
+    min-height: 100vh;
+    padding: var(--SectionPadding) 0;
+    background-color:var(--BlackBackground) ;
+    color: white;
+}
+header .box{
+    position: relative;
+    z-index: 1;
+}
+header p:nth-child(1){
+    letter-spacing: 8px;
+}
+header p:nth-last-child(2){
+    max-width: 750px;    
+    width: 100%;
+}
+header img.G{
+    right: 200px;
+    z-index: 0;
+    width: 500px;
+    object-fit: contain;
+}
+header img.E{
+    bottom: 0;
+    z-index: 0;
+    right: 500px;
+    width: 200px;
+    object-fit: contain;
+}
+section{
+    height: 100vh;
+    width: 100%;
+}
+section.black{
+    background-color: black;
+}
+
+.circle{
+    position: fixed;
+    top: 100px;
+    width: 100px;
+    height: 100px;
+    /* background-color: red; */
+    transition: .5s ease;
+}
