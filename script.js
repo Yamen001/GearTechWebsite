@@ -1,3 +1,5 @@
+var rellax = new Rellax('.rellax')
+
 let lineScroll = document.querySelector("#line")
 
 let fullHieght = document.documentElement.scrollHeight
@@ -16,16 +18,11 @@ window.addEventListener("scroll",function(){
 
 
 let nav = document.querySelector('nav')
-let hamburger = document.querySelectorAll(".hamburger .line")
 let menu = document.querySelector(".nav-links")
 let MenuLinks = document.querySelectorAll(".nav-links .container .menu-left ul li")
 function openMenu() {
     menu.classList.toggle("open")
-    MenuLinks.forEach((link) => { console.log(link) 
-        link.classList.toggle("fade") })
-    hamburger.forEach(line => {
-        line.classList.toggle("open")
-    });
+    console.log(menu)
 }
 // const pos = document.documentElement
 // pos.addEventListener('mousemove', function (e) {
@@ -34,8 +31,5 @@ function openMenu() {
 // })
 
 
-var cursor = document.querySelector("#circle")
-var cursor2 = document.querySelector("#circle2")
-document.addEventListener("mousemove", function (e) {
-    cursor.style.cssText = cursor2.style.cssText = "left :" + e.clientX + "px; top:" + e.clientY +"px" 
-})
+
+

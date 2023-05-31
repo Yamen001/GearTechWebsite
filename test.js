@@ -1,7 +1,5 @@
 let blackSection = document.querySelectorAll("section.black")
 let circle = document.querySelector('.circle')
-console.log(circle)
-console.log(blackSection)
 
 let Sections = []
 
@@ -15,54 +13,48 @@ class Section {
 }
 
 blackSection.forEach((section) => {
-    let obj = new Section(section.getBoundingClientRect().top, section.getBoundingClientRect().bottom)
+    let obj = new Section(section.getBoundingClientRect().top , section.getBoundingClientRect().bottom)
     Sections.push(obj)
 })
 
 
 
 document.addEventListener('scroll', () => {
-    // console.log(window.scrollY)
-    let currentSectionstart
-    let currentsectionend
+    let show = IsBlack()
+    if(show){
+        circle.style.backgroundColor = 'red'
+    }
+    else{
+        circle.style.backgroundColor = 'black'
+    }
 
 
-    Sections.forEach((section) => {
 
-        //~ if cursor is between a specific range of any black section of the sections .... specify the start and the end of the section
-        if (window.scrollY >= section.start && window.scrollY <= section.end) {
-            currentSectionstart = section.start
-            currentsectionend = section.end
-            if (window.scrollY >= currentSectionstart && window.scrollY <= currentsectionend) {
-                circle.style.backgroundColor = 'red'
+function IsBlack(){
+    let ArrayResult = []
+    let show = ()=>{
+            for(let i =0 ; i<= Sections.length-1 ;i++){
+                if(window.scrollY <= Sections[i].end && window.scrollY >= Sections[i].start){
+
+                    ArrayResult.push(true)
+                }
+                else{
+                    ArrayResult.push(false)
+                }
             }
-            else{
-                circle.style.backgroundColor = 'black'
-            }   
-            console.log(currentSectionstart , currentsectionend)
-            console.log(window.scrollY)
         }
+    show()
+    console.log(ArrayResult)
+    let result =ArrayResult.reduce((acc , index) =>{
+        return acc + index
     })
-
-    // Sections.forEach((section) => {
-    //     // console.log(section.start , section.end)
-    //     if (window.scrollY >= section.start && window.scrollY <= section.end) {
-    //         console.log('the current scrollaia', window.scrollY)
-    //         console.log(section.start , section.end)
-    //         // console.log('black section')
-    //         // changeTheme()
-    //         circle.style.backgroundColor = 'red'
-
-    //     }
-    //     else{
-    //         circle.style.backgroundColor = 'black'
-    //     }
-
-    // })
-})
-
-function changeTheme() {
-    circle.style.backgroundColor = 'red'
+    return result
 }
 
+
+})
+
+
+
 // !111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+
